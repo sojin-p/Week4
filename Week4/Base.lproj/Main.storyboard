@@ -146,13 +146,92 @@
                     <view key="view" contentMode="scaleToFill" id="8dd-9t-v2V">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="102-aM-kUX">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Vqe-Sb-ixW"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="FNH-tI-7Ve" id="diB-s9-mL6"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CE5-0d-aPg">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoTableViewCell" rowHeight="143" id="hEM-K6-Ag5" customClass="VideoTableViewCell" customModule="Week4" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="143"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hEM-K6-Ag5" id="X44-89-JDb">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oHD-c9-dOO">
+                                                    <rect key="frame" x="16" y="8" width="169.33333333333334" height="127"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="oHD-c9-dOO" secondAttribute="height" multiplier="4:3" id="Ht3-Fr-9fN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7L-a6-kGB">
+                                                    <rect key="frame" x="193.33333333333337" y="7.9999999999999982" width="183.66666666666663" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4분 30초 | 22.06.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFs-2e-sQ6">
+                                                    <rect key="frame" x="193.33333333333337" y="32.333333333333336" width="183.66666666666663" height="36.000000000000007"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="ryJ-2j-XFH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="g7L-a6-kGB" secondAttribute="trailing" constant="16" id="5SN-oy-eVM"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UFs-2e-sQ6" secondAttribute="bottom" constant="8" id="H4s-8j-KI7"/>
+                                                <constraint firstItem="oHD-c9-dOO" firstAttribute="top" secondItem="X44-89-JDb" secondAttribute="top" constant="8" id="ND9-Ag-w7U"/>
+                                                <constraint firstAttribute="bottom" secondItem="oHD-c9-dOO" secondAttribute="bottom" constant="8" id="Ow4-sU-ge6"/>
+                                                <constraint firstItem="g7L-a6-kGB" firstAttribute="top" secondItem="X44-89-JDb" secondAttribute="top" constant="8" id="RGD-IF-3YA"/>
+                                                <constraint firstItem="g7L-a6-kGB" firstAttribute="leading" secondItem="oHD-c9-dOO" secondAttribute="trailing" constant="8" id="T0R-KI-IKR"/>
+                                                <constraint firstItem="UFs-2e-sQ6" firstAttribute="leading" secondItem="oHD-c9-dOO" secondAttribute="trailing" constant="8" id="alK-k6-pZF"/>
+                                                <constraint firstAttribute="trailing" secondItem="UFs-2e-sQ6" secondAttribute="trailing" constant="16" id="crU-Gr-5lo"/>
+                                                <constraint firstItem="UFs-2e-sQ6" firstAttribute="top" secondItem="g7L-a6-kGB" secondAttribute="bottom" constant="4" id="fMW-VJ-BXA"/>
+                                                <constraint firstItem="oHD-c9-dOO" firstAttribute="leading" secondItem="X44-89-JDb" secondAttribute="leading" constant="16" id="gXv-Ea-JVa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="UFs-2e-sQ6" id="nY4-7q-ccv"/>
+                                            <outlet property="thumnailImgeView" destination="oHD-c9-dOO" id="vjn-My-YMa"/>
+                                            <outlet property="titleLabel" destination="g7L-a6-kGB" id="nZS-gf-5vz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dZ8-QC-FDB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CE5-0d-aPg" firstAttribute="top" secondItem="102-aM-kUX" secondAttribute="bottom" id="6Vm-CP-0Nz"/>
+                            <constraint firstItem="102-aM-kUX" firstAttribute="leading" secondItem="dZ8-QC-FDB" secondAttribute="leading" id="IQ1-Gz-HFz"/>
+                            <constraint firstItem="dZ8-QC-FDB" firstAttribute="bottom" secondItem="CE5-0d-aPg" secondAttribute="bottom" id="IxY-ti-duu"/>
+                            <constraint firstItem="CE5-0d-aPg" firstAttribute="leading" secondItem="dZ8-QC-FDB" secondAttribute="leading" id="OO9-Vz-1tO"/>
+                            <constraint firstItem="102-aM-kUX" firstAttribute="top" secondItem="dZ8-QC-FDB" secondAttribute="top" id="Vjk-6r-YQ5"/>
+                            <constraint firstItem="102-aM-kUX" firstAttribute="trailing" secondItem="dZ8-QC-FDB" secondAttribute="trailing" id="WOP-Ph-PD2"/>
+                            <constraint firstItem="dZ8-QC-FDB" firstAttribute="trailing" secondItem="CE5-0d-aPg" secondAttribute="trailing" id="q9X-Mc-zEB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="102-aM-kUX" id="7tb-Pq-2bB"/>
+                        <outlet property="videoTableView" destination="CE5-0d-aPg" id="qbq-sz-aik"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6z-4R-fbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="-2"/>
+            <point key="canvasLocation" x="1533.5877862595419" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

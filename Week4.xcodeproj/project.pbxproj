@@ -21,6 +21,7 @@
 		232408662A809C5A000A1024 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408652A809C5A000A1024 /* APIKey.swift */; };
 		2324086E2A81C4EA000A1024 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2324086D2A81C4EA000A1024 /* WeatherViewController.swift */; };
 		232408702A81E795000A1024 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2324086F2A81E795000A1024 /* VideoViewController.swift */; };
+		232408BD2A832309000A1024 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408BC2A832309000A1024 /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		232408652A809C5A000A1024 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2324086D2A81C4EA000A1024 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2324086F2A81E795000A1024 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		232408BC2A832309000A1024 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				232408482A809657000A1024 /* ViewController.swift */,
 				2324084A2A809657000A1024 /* Main.storyboard */,
 				2324086F2A81E795000A1024 /* VideoViewController.swift */,
+				232408BC2A832309000A1024 /* VideoTableViewCell.swift */,
 				2324086D2A81C4EA000A1024 /* WeatherViewController.swift */,
 				2324084D2A80965A000A1024 /* Assets.xcassets */,
 				2324084F2A80965A000A1024 /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				2324086E2A81C4EA000A1024 /* WeatherViewController.swift in Sources */,
 				232408492A809657000A1024 /* ViewController.swift in Sources */,
 				232408452A809657000A1024 /* AppDelegate.swift in Sources */,
+				232408BD2A832309000A1024 /* VideoTableViewCell.swift in Sources */,
 				232408472A809657000A1024 /* SceneDelegate.swift in Sources */,
 				232408662A809C5A000A1024 /* APIKey.swift in Sources */,
 			);
