@@ -46,6 +46,7 @@ class VideoViewController: UIViewController {
     }
     
     func callRequest(query: String, page: Int) {
+        
         guard let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=10&page=\(page)" //한글은 인식이 안됨, 한글에 대한 처리(인코딩) 필요
         let header: HTTPHeaders = ["Authorization": "KakaoAK \(APIKey.kakaoAK)"]
@@ -56,10 +57,9 @@ class VideoViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
-                
+//                print("JSON: \(json)")
                 //상태코드 받아보기
-                print(response.response?.statusCode)
+//                print(response.response?.statusCode)
                 
                 let statusCode = response.response?.statusCode ?? 500 //만약 statusCode가 닐이면 500으로.. 이거 나중에 바꿔야
                 
