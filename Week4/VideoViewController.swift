@@ -6,29 +6,14 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import Kingfisher
-
-struct Video {
-    let title: String
-    let author: String
-    let date: String
-    let time: Int
-    let thumbnail: String
-    let link: String
-    
-    var contents: String {
-        "\(author) | \(time)회\n\(date)"
-    }
-}
 
 class VideoViewController: UIViewController {
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var videoTableView: UITableView!
     
-    var videoList: [Video] = []
+    var videoList: [Document] = []
     var page = 1
     var isEnd = false //현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
 
@@ -41,56 +26,16 @@ class VideoViewController: UIViewController {
         videoTableView.rowHeight = 120
         
         searchBar.delegate = self
-        
 
     }
     
     func callRequest(query: String, page: Int) {
-        
-        //7.텍스트부터 프린트는 매니저에있으니까 지우고 매니저 인스턴스에 접근
-        KakaoAPIManager.shared.callRequest(type: .video, query: query) { json in //엔터치고 in 앞에는 매니저에 해놓은 json에 접근할 수 있게 해놨으므로..
-            print("\(json)------------")
+        KakaoAPIManager.shared.callTest(type: .video, query: query, page: page) { video in
+            self.videoList.append(contentsOf: video.documents)
+            self.isEnd = video.meta.isEnd
+            print(self.videoList, self.isEnd, "잘 담겼니?")
+            self.videoTableView.reloadData()
         }
-        
-        
-//        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-////                print("JSON: \(json)")
-//                //상태코드 받아보기
-////                print(response.response?.statusCode)
-//
-//                let statusCode = response.response?.statusCode ?? 500 //만약 statusCode가 닐이면 500으로.. 이거 나중에 바꿔야
-//
-//                if statusCode == 200 {
-//
-//                    self.isEnd = json["meta"]["is_end"].boolValue //페이지 관리
-//
-//                    for i in json["documents"].arrayValue {
-//
-//                        let title = i["title"].stringValue
-//                        let author = i["author"].stringValue
-//                        let date = i["datetime"].stringValue
-//                        let time = i["play_time"].intValue
-//                        let thumbnail = i["thumbnail"].stringValue
-//                        let link = i["url"].stringValue
-//
-//                        let data = Video(title: title, author: author, date: date, time: time, thumbnail: thumbnail, link: link)
-//
-//                        self.videoList.append(data)
-//                    }
-//                } else {
-//                    //나중에 번호마다 대응해야함
-//                    print("잠시 후 다시 시도해주세요!")
-//                }
-//                //갱신 필수
-//                self.videoTableView.reloadData()
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 
 }
@@ -136,11 +81,13 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     //page count 체크
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
+        guard let text = searchBar.text else { return }
+        
         for indexPath in indexPaths {
             //셀의 마지막이란, 배열 갯수와 셀의 인덱스가 같아지는 시점. (인덱스는 0부터니까 배열갯수-1)
             if videoList.count - 1 == indexPath.row && page < 15 && !isEnd { //맥스페이지 이상 넘어가면 안되니까, 페이지가 끝인지 아닌지
                 page += 1 //페이지수 올리고
-                callRequest(query: searchBar.text!, page: page) //기존 글자 기준으로 서버통신 해달라
+                callRequest(query: text, page: page) //기존 글자 기준으로 서버통신 해달라
             }
         }
         

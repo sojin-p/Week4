@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class KakaoAPIManager {
     
@@ -17,25 +16,18 @@ class KakaoAPIManager {
     
     let header: HTTPHeaders = ["Authorization": "KakaoAK \(APIKey.kakaoAK)"] //2. 공통으로 쓰니까 빼기
     
-    func callRequest(type: Endpoint, query: String, completionHandler: @escaping (JSON) -> () ) { //4.클로저 매개변수 생성 //6. @escaping 붙이기
+    func callTest(type: Endpoint, query: String, page: Int, completionHandler: @escaping (KakaoVideo) -> () ) {
         
-        //1. 쿼리 : 검색어 매개변수로 빼기
         guard let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
-        let url = type.requestURL + text //3.타입매개변수 만들기 (사이즈, 페이지는 일단 생략)
+        let url = type.requestURL + text + "&size=10" + "&page=\(page)"
         
-        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                
-                completionHandler(json) // 5. 성공했을 때 제이슨을 보낼 수 있다.
-                
-            case .failure(let error):
-                print(error)
-            }
+        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500)
+            .responseDecodable(of: KakaoVideo.self) { response in
+                guard let value = response.value else { return }
+//                print(value.documents)
+                completionHandler(value)
         }
-        
     }
     
 }

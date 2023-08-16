@@ -30,6 +30,7 @@
 		235878A02A85E36200861B01 /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358789F2A85E36200861B01 /* TranslateAPIManager.swift */; };
 		235878A22A85F9EE00861B01 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235878A12A85F9EE00861B01 /* AsyncViewController.swift */; };
 		23CB12282A8A02290023A9DF /* BoxOfficeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12272A8A02290023A9DF /* BoxOfficeData.swift */; };
+		23CB12432A8CEE800023A9DF /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12422A8CEE800023A9DF /* VideoData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		2358789F2A85E36200861B01 /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
 		235878A12A85F9EE00861B01 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 		23CB12272A8A02290023A9DF /* BoxOfficeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeData.swift; sourceTree = "<group>"; };
+		23CB12422A8CEE800023A9DF /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				235878A12A85F9EE00861B01 /* AsyncViewController.swift */,
 				232408C02A847696000A1024 /* PapagoViewController.swift */,
 				2324086F2A81E795000A1024 /* VideoViewController.swift */,
+				23CB12422A8CEE800023A9DF /* VideoData.swift */,
 				232408BC2A832309000A1024 /* VideoTableViewCell.swift */,
 				2324086D2A81C4EA000A1024 /* WeatherViewController.swift */,
 				2324084D2A80965A000A1024 /* Assets.xcassets */,
@@ -211,6 +214,7 @@
 				232408BD2A832309000A1024 /* VideoTableViewCell.swift in Sources */,
 				232408472A809657000A1024 /* SceneDelegate.swift in Sources */,
 				23CB12282A8A02290023A9DF /* BoxOfficeData.swift in Sources */,
+				23CB12432A8CEE800023A9DF /* VideoData.swift in Sources */,
 				232408D52A85C512000A1024 /* Endpoint.swift in Sources */,
 				232408662A809C5A000A1024 /* APIKey.swift in Sources */,
 			);
