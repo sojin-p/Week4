@@ -22,6 +22,14 @@
 		232408702A81E795000A1024 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2324086F2A81E795000A1024 /* VideoViewController.swift */; };
 		232408BD2A832309000A1024 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408BC2A832309000A1024 /* VideoTableViewCell.swift */; };
 		232408C12A847696000A1024 /* PapagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408C02A847696000A1024 /* PapagoViewController.swift */; };
+		232408D12A85BAA0000A1024 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408D02A85BAA0000A1024 /* ReusableViewProtocol.swift */; };
+		232408D32A85BCFF000A1024 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408D22A85BCFF000A1024 /* UserDefaultsHelper.swift */; };
+		232408D52A85C512000A1024 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408D42A85C512000A1024 /* Endpoint.swift */; };
+		232408D72A85C5CA000A1024 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408D62A85C5CA000A1024 /* URL+Extension.swift */; };
+		232408D92A85C780000A1024 /* KakaoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232408D82A85C780000A1024 /* KakaoAPIManager.swift */; };
+		235878A02A85E36200861B01 /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358789F2A85E36200861B01 /* TranslateAPIManager.swift */; };
+		235878A22A85F9EE00861B01 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235878A12A85F9EE00861B01 /* AsyncViewController.swift */; };
+		23CB12282A8A02290023A9DF /* BoxOfficeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12272A8A02290023A9DF /* BoxOfficeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +47,14 @@
 		2324086F2A81E795000A1024 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		232408BC2A832309000A1024 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		232408C02A847696000A1024 /* PapagoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapagoViewController.swift; sourceTree = "<group>"; };
+		232408D02A85BAA0000A1024 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		232408D22A85BCFF000A1024 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		232408D42A85C512000A1024 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		232408D62A85C5CA000A1024 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		232408D82A85C780000A1024 /* KakaoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIManager.swift; sourceTree = "<group>"; };
+		2358789F2A85E36200861B01 /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
+		235878A12A85F9EE00861B01 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
+		23CB12272A8A02290023A9DF /* BoxOfficeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +92,10 @@
 			children = (
 				232408442A809657000A1024 /* AppDelegate.swift */,
 				232408462A809657000A1024 /* SceneDelegate.swift */,
+				23CB12272A8A02290023A9DF /* BoxOfficeData.swift */,
 				232408482A809657000A1024 /* ViewController.swift */,
 				2324084A2A809657000A1024 /* Main.storyboard */,
+				235878A12A85F9EE00861B01 /* AsyncViewController.swift */,
 				232408C02A847696000A1024 /* PapagoViewController.swift */,
 				2324086F2A81E795000A1024 /* VideoViewController.swift */,
 				232408BC2A832309000A1024 /* VideoTableViewCell.swift */,
@@ -87,6 +105,12 @@
 				232408522A80965A000A1024 /* Info.plist */,
 				232408612A809BA2000A1024 /* .gitignore */,
 				232408652A809C5A000A1024 /* APIKey.swift */,
+				232408D02A85BAA0000A1024 /* ReusableViewProtocol.swift */,
+				232408D22A85BCFF000A1024 /* UserDefaultsHelper.swift */,
+				232408D42A85C512000A1024 /* Endpoint.swift */,
+				232408D62A85C5CA000A1024 /* URL+Extension.swift */,
+				232408D82A85C780000A1024 /* KakaoAPIManager.swift */,
+				2358789F2A85E36200861B01 /* TranslateAPIManager.swift */,
 			);
 			path = Week4;
 			sourceTree = "<group>";
@@ -175,11 +199,19 @@
 			files = (
 				232408702A81E795000A1024 /* VideoViewController.swift in Sources */,
 				2324086E2A81C4EA000A1024 /* WeatherViewController.swift in Sources */,
+				232408D32A85BCFF000A1024 /* UserDefaultsHelper.swift in Sources */,
+				232408D12A85BAA0000A1024 /* ReusableViewProtocol.swift in Sources */,
 				232408C12A847696000A1024 /* PapagoViewController.swift in Sources */,
+				235878A02A85E36200861B01 /* TranslateAPIManager.swift in Sources */,
+				232408D92A85C780000A1024 /* KakaoAPIManager.swift in Sources */,
+				232408D72A85C5CA000A1024 /* URL+Extension.swift in Sources */,
 				232408492A809657000A1024 /* ViewController.swift in Sources */,
+				235878A22A85F9EE00861B01 /* AsyncViewController.swift in Sources */,
 				232408452A809657000A1024 /* AppDelegate.swift in Sources */,
 				232408BD2A832309000A1024 /* VideoTableViewCell.swift in Sources */,
 				232408472A809657000A1024 /* SceneDelegate.swift in Sources */,
+				23CB12282A8A02290023A9DF /* BoxOfficeData.swift in Sources */,
+				232408D52A85C512000A1024 /* Endpoint.swift in Sources */,
 				232408662A809C5A000A1024 /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

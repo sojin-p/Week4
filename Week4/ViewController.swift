@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     //빈 배열에서 만든 구조체로 바꾸기
     var movieList: [Movie] = []
     
+    //3. Codable
+    var result: BoxOffice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +43,7 @@ class ViewController: UIViewController {
         
     }
     
+    //박스오피스 요청
     func callReauest(date: String) {
         //호출되면 요청 전에 보여짐
         indicatorView.startAnimating()
@@ -48,32 +52,38 @@ class ViewController: UIViewController {
         //왜 안될까 ? url이 https가 아니고 http임 - info에서 바꾸기 - ATS
         //인증키 관리 중요!!! -> .gitignore로 중요한 키 숨기기
         let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=\(date)"
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for i in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
-                    let movieNm = i["movieNm"].stringValue
-                    let openDt = i["openDt"].stringValue
-                    
-                    //스트링배열에 무비배열 담을 수 없으니
-                    let data = Movie(title: movieNm, release: openDt)
-                    
-                    self.movieList.append(data)
-                }
-                
-                self.indicatorView.stopAnimating()
-                self.indicatorView.isHidden = true // 뷰에 보여주기 전에 다시 숨기기
-                //뷰랑 따로 노니까 갱신
-                self.movieTableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
+        AF.request(url, method: .get).validate() //1. 여기서 엔터
+            //2.responseDecodable에 괄호열고 of: 제일 큰 구조체.self
+            .responseDecodable(of: BoxOffice.self) { response in
+                print(response.value) //구조체에 담긴 형태가 됨
+                self.result = response.value //4.
             }
-        }
-        
+
+//            .responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                print("JSON: \(json)")
+//
+//                for i in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+//                    let movieNm = i["movieNm"].stringValue
+//                    let openDt = i["openDt"].stringValue
+//
+//                    //스트링배열에 무비배열 담을 수 없으니
+//                    let data = Movie(title: movieNm, release: openDt)
+//
+//                    self.movieList.append(data)
+//                }
+//
+//                self.indicatorView.stopAnimating()
+//                self.indicatorView.isHidden = true // 뷰에 보여주기 전에 다시 숨기기
+//                //뷰랑 따로 노니까 갱신
+//                self.movieTableView.reloadData()
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 
 }
@@ -93,7 +103,7 @@ extension ViewController: UISearchBarDelegate {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        return result!.boxOfficeResult.dailyBoxOfficeList.count //movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
